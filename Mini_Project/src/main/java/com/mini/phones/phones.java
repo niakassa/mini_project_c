@@ -14,15 +14,17 @@ public class phones extends baseUi {
 
 	@Test
 	public void phonesUnder30k() {
+		System.out.print('\f');
 		Scanner ab=new Scanner(System.in);
 		System.out.println("Select the Browser of your choice: \n 1.FireFox \n 2.Chrome \n\nEnter your choice: ");
 		int a=ab.nextInt();
+		boolean b;
 		switch(a) {
-		case 1:callBrowser("Firefox");break;
-		case 2:callBrowser("Chrome");break;
-		default: System.out.println("You ented a invalid chice,Thus we make you go with MSEadge");
-		callBrowser("Eadge");
+		case 1:callBrowser("Firefox");b=true;break;
+		case 2:callBrowser("Chrome");b=true;break;
+		default: System.out.println("You entred a invalid choice");b=false;break;
 		}
+		if(b) {
 		openUrl("websiteURLKey");
 		pressEscape("searchtextbox_xpath");
 		enterText("searchtextbox_xpath", "Phones under 30000");
@@ -36,6 +38,6 @@ public class phones extends baseUi {
 		}
 		printOutput(name,price);
 		quitBrowser();
-	}
+	}}
 
 }
