@@ -1,5 +1,6 @@
 package com.mini.phones;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -13,16 +14,17 @@ import com.minimini.baseUi;
 public class phones extends baseUi {
 
 	@Test
-	public void phonesUnder30k() {
+	public void phonesUnder30k() throws IOException {
 		System.out.print('\f');
 		Scanner ab=new Scanner(System.in);
 		System.out.println("Select the Browser of your choice: \n 1.FireFox \n 2.Chrome \n\nEnter your choice: ");
 		int a=ab.nextInt();
-		boolean b;
+		boolean b=true;
+		
 		switch(a) {
-		case 1:callBrowser("Firefox");b=true;break;
-		case 2:callBrowser("Chrome");b=true;break;
-		default: System.out.println("You entred a invalid choice");b=false;break;
+		case 1:callBrowser("Firefox");break;
+		case 2:callBrowser("Chrome");break;
+		default: System.out.println("You entred a invalid choice");b=false;;break;
 		}
 		if(b) {
 		openUrl("websiteURLKey");

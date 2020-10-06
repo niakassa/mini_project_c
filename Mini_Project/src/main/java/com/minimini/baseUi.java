@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
@@ -32,6 +32,7 @@ public class baseUi {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			
 		}
 
 		try {
@@ -91,29 +92,32 @@ public class baseUi {
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	
 	public String callElements(String xpathKey,int gi) {
 		return driver.findElements(By.xpath(prop.getProperty(xpathKey))).get(gi).getText();
 		}
-	public void printOutput(String[] arr1,String[] arr2) {
+	
+	
+	public void printOutput(String[] arr1,String[] arr2) throws IOException{
 		
-		FileOutputStream fos = null;
-		XSSFWorkbook workbook = null;
-		XSSFSheet sheet = null;
-		XSSFRow row = null;
-		workbook = new XSSFWorkbook();
-		sheet = workbook.createSheet("873089");
-		
-		for (int i = 0; i < 5; i++) {
-			row = sheet.createRow(i);
-			row.createCell(0).setCellValue(arr1[i]);
-			row.createCell(1).setCellValue(arr2[i]);
+		XSSFWorkbook wb=new XSSFWorkbook();
+		XSSFSheet sheet=wb.createSheet("873089");
+		Row r=sheet.createRow(0);
+		r.createCell(0).setCellValue("Phones");
+		r.createCell(1).setCellValue("Price");
+		for(int i=0;i<5;i++) {
+			Row rr=sheet.createRow(i+1);
+			rr.createCell(0).setCellValue(arr1[i]);
+			rr.createCell(1).setCellValue(arr2[i]);
 		}
 		sheet.autoSizeColumn(0);
-		
+		sheet.autoSizeColumn(1);
 		try {
-			fos = new FileOutputStream("phonesUnder30000.xlsx");
-			workbook.write(fos);
-			fos.close();
+		FileOutputStream fos=new FileOutputStream(System.getProperty("user.dir")+"\\outputIGot\\OutputFile.xlsx");
+		wb.write(fos);
+		wb.close();
+		fos.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-09-30T10:56:17 IST" name="Default suite" finished-at="2020-09-30T10:56:19 IST" duration-ms="2625">
+  <suite started-at="2020-10-06T12:07:26 IST" name="Default suite" finished-at="2020-10-06T12:07:40 IST" duration-ms="14099">
     <groups>
     </groups>
-    <test started-at="2020-09-30T10:56:17 IST" name="Default test" finished-at="2020-09-30T10:56:19 IST" duration-ms="2625">
+    <test started-at="2020-10-06T12:07:26 IST" name="Default test" finished-at="2020-10-06T12:07:40 IST" duration-ms="14099">
       <class name="com.mini.phones.phones">
-        <test-method signature="phonesUnder30k()[pri:0, instance:com.mini.phones.phones@6ac13091]" started-at="2020-09-30T10:56:17 IST" name="phonesUnder30k" finished-at="2020-09-30T10:56:19 IST" duration-ms="2589" status="PASS">
+        <test-method signature="phonesUnder30k()[pri:0, instance:com.mini.phones.phones@4313f5bc]" started-at="2020-10-06T12:07:26 IST" name="phonesUnder30k" finished-at="2020-10-06T12:07:40 IST" duration-ms="14070" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- phonesUnder30k -->
